@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ถึงคลีน ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+
+            /* พื้นหลังสีไข่ / สีผิวอ่อน */
+            background: #f1dfc5;
+
+            color: #654c38;
+            overflow-x: hidden;
+        }
+
+        /* หัวใจลอย */
+        .heart {
+            position: fixed;
+            font-size: 25px;
+            animation: floatHeart 5s linear infinite;
+            opacity: 0.7;
+            z-index: 0;
+        }
+
+        .heart:nth-child(1) {
+            left: 8%;
+            animation-delay: 0s;
+        }
+
+        .heart:nth-child(2) {
+            left: 85%;
+            animation-delay: 2s;
+        }
+
+        .heart:nth-child(3) {
+            left: 50%;
+            animation-delay: 4s;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                bottom: -50px;
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(20px);
+            }
+
+            100% {
+                bottom: 110%;
+                transform: translateX(-20px);
+            }
+        }
+
+        /* กล่องใหญ่ */
+        .container {
+            position: relative;
+            z-index: 1;
+
+            width: 90%;
+            max-width: 1000px;
+            margin: 50px auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+
+            padding: 25px;
+
+            background: #fff8ed;
+
+            /* กรอบน้ำตาล */
+            border: 5px solid #9b7048;
+
+            border-radius: 30px;
+
+            box-shadow: 0 10px 30px rgba(100, 70, 40, 0.18);
+        }
+
+        /* ส่วนรูป */
+        .photo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .photo-box {
+            width: 100%;
+            padding: 12px;
+
+            background: #ead2b2;
+
+            border: 4px solid #9b7048;
+
+            border-radius: 25px;
+
+            box-shadow: 0 6px 15px rgba(100, 70, 40, 0.2);
+        }
+
+        .photo-box img {
+            display: block;
+
+            width: 100%;
+            height: auto;
+
+            max-height: 600px;
+
+            object-fit: cover;
+
+            border-radius: 18px;
+        }
+
+        /* กล่องข้อความสีน้ำตาล */
+        .letter {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            padding: 35px;
+
+            background: #9b7048;
+
+            border: 4px solid #7d5738;
+
+            border-radius: 25px;
+
+            text-align: center;
+
+            color: white;
+
+            box-shadow: 0 6px 15px rgba(100, 70, 40, 0.2);
+        }
+
+        /* ตัวหนังสือสีขาว */
+        .letter h1,
+        .letter h2,
+        .letter p,
+        .letter .sorry {
+            color: white;
+        }
+
+        .letter h1 {
+            margin-top: 0;
+            font-size: 32px;
+        }
+
+        .letter h2 {
+            font-size: 24px;
+        }
+
+        .letter p {
+            font-size: 18px;
+            line-height: 1.9;
+            margin: 10px 0;
+        }
+
+        .sorry {
+            font-size: 26px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        /* ปุ่ม */
+        button {
+            margin-top: 25px;
+
+            padding: 15px 25px;
+
+            border: 3px solid #ead2b2;
+
+            border-radius: 30px;
+
+            background: #fff8ed;
+
+            color: #7d5738;
+
+            font-size: 17px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ead2b2;
+            transform: scale(1.05);
+        }
+
+        /* ข้อความหลังจากกดปุ่ม */
+        #specialMessage {
+            display: none;
+
+            margin-top: 25px;
+            padding: 20px;
+
+            background: #7d5738;
+
+            border: 3px solid #ead2b2;
+
+            border-radius: 20px;
+
+            color: white;
+
+            font-size: 18px;
+            line-height: 1.8;
+
+            animation: appear 0.6s ease;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* มือถือ */
+        @media (max-width: 700px) {
+
+            .container {
+                width: 94%;
+
+                margin: 20px auto;
+
+                grid-template-columns: 1fr;
+
+                padding: 12px;
+
+                border-width: 4px;
+
+                border-radius: 25px;
+            }
+
+            .photo-box {
+                padding: 8px;
+            }
+
+            .photo-box img {
+                max-height: 500px;
+            }
+
+            .letter {
+                padding: 25px 18px;
+            }
+
+            .letter h1 {
+                font-size: 28px;
+            }
+
+            .letter h2 {
+                font-size: 21px;
+            }
+
+            .letter p {
+                font-size: 16px;
+                line-height: 1.8;
+            }
+
+            .sorry {
+                font-size: 23px;
+            }
+
+            button {
+                width: 100%;
+                font-size: 16px;
+            }
+
+            #specialMessage {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- หัวใจลอย -->
+    <div class="heart">🤎</div>
+    <div class="heart">♡</div>
+    <div class="heart">🤎</div>
+
+
+    <main class="container">
+
+        <!-- รูปภาพ -->
+        <section class="photo-section">
+
+            <div class="photo-box">
+
+                <img src="photo.jpg" alt="รูปของเรา">
+
+            </div>
+
+        </section>
+
+
+        <!-- จดหมาย -->
+        <section class="letter">
+
+            <h1>รูปข้างบนสวยช่ะะ<h1></h1>
+
+            <p class="sorry">
+                เราคุยกันมา128วันแล้วนะเว่ยย
+            </p>
+
+            <p>
+                1ใน3ของปีเลยนะ ผ่านมาค่ตไว แล้วเป็นไงบ้างยังมีความสุขดีอยุ่มั้ย
+            </p>
+
+            <p>
+                ที่เคยทำตัวไม่ดีใส่อ่ะ ขอโทดนะ แต่ลองอ่านข้างล่างดุหน่อยดิ
+            </p>
+
+
+            <button onclick="showMessage()">
+                ลองกดตรงนี้ดุ 
+            </button>
+
+
+            <div id="specialMessage">
+
+                ขอบคุณนะ128วันที่อยุ่ด้วยกันมา
+                <br>
+                พียังรักและก้รุ้สึกดีเหมือนช่วงแรกที่เราคุยกันเลยเด้ออ 
+                อยากถามว่า เรากลับมาคบกันมั้ย ที่เป้นอยุ่ตอนนี้พีมีความสุขมากๆเลยนะะ
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        function showMessage() {
+
+            const message =
+                document.getElementById("specialMessage");
+
+            if (message.style.display === "block") {
+
+                message.style.display = "none";
+
+            } else {
+
+                message.style.display = "block";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
